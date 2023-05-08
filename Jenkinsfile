@@ -52,19 +52,18 @@ pipeline {
                 )
             }
         }
-        stage('CanaryDeploy') {
-            when {
-                branch 'master'
-            }
-             environment {
-            CANARY_REPLICAS = 0
-            }
-            steps {
-               kubernetesDeploy(
-               kubeconfigId: 'kubeconfig',
-               configs: 'train-schdeule-kube-canary.yml',
-               enableConfigSubstitution: true
-                )
-            }
-        }
+stage('CanaryDeploy') {
+  when {
+    branch 'master'
+  }
+  environment {
+    CANARY_REPLICAS = 0
+  }
+  steps {
+    kubernetesDeploy(
+      kubeconfigId: 'kubeconfig',
+      configs: 'train-schdeule-kube-canary.yml',
+      enableConfigSubstitution: true
+      )
+  }
 }
