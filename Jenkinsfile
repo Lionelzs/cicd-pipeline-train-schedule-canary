@@ -1,4 +1,5 @@
 pipeline {
+    // equivalent a l execution d'un github actions ou gitalab ci avec une connexion opendid sur le server 
     agent any
     environment {
         //be sure to replace "lionelzs" with your own Docker Hub username
